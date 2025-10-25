@@ -87,6 +87,11 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
 
         btnSelisih.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         btnSelisih.setText("Selisih");
+        btnSelisih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelisihActionPerformed(evt);
+            }
+        });
 
         btnKeluar.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         btnKeluar.setText("Keluar");
@@ -214,6 +219,25 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
         lblHasil.setText("Jumlah Hari: -");
     lblInfoHari.setText("Hari pertama & terakhir: -");
     }//GEN-LAST:event_spnTahunStateChanged
+
+    private void btnSelisihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelisihActionPerformed
+        // TODO add your handling code here:
+        try {
+        java.util.Date d1 = jCalendar2.getDate();
+        java.util.Date d2 = jCalendar3.getDate();
+
+        // Konversi java.util.Date ke LocalDate
+        java.time.LocalDate tanggal1 = d1.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+        java.time.LocalDate tanggal2 = d2.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+
+        long selisih = Math.abs(java.time.temporal.ChronoUnit.DAYS.between(tanggal1, tanggal2));
+
+        JOptionPane.showMessageDialog(this, "Selisih antara " + tanggal1 + " dan " + tanggal2 + " adalah " + selisih + " hari.");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menghitung selisih: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    }//GEN-LAST:event_btnSelisihActionPerformed
 
     /**
      * @param args the command line arguments
