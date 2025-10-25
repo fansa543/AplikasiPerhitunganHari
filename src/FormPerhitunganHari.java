@@ -68,6 +68,11 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
         cmbBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         spnTahun.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        spnTahun.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spnTahunStateChanged(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel6.setText("Menggunakan calendar");
@@ -203,6 +208,12 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
     }
 
     }//GEN-LAST:event_btnHitungActionPerformed
+
+    private void spnTahunStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnTahunStateChanged
+        // TODO add your handling code here:
+        lblHasil.setText("Jumlah Hari: -");
+    lblInfoHari.setText("Hari pertama & terakhir: -");
+    }//GEN-LAST:event_spnTahunStateChanged
 
     /**
      * @param args the command line arguments
