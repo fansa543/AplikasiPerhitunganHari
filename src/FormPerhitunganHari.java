@@ -8,6 +8,14 @@
  *
  * @author LENOVO
  */
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Locale;
+import javax.swing.JOptionPane;
+
+
 public class FormPerhitunganHari extends javax.swing.JFrame {
 
     /**
@@ -15,6 +23,11 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
      */
     public FormPerhitunganHari() {
         initComponents();
+        String[] bulan = {"Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                      "Juli", "Agustus", "September", "Oktober", "November", "Desember"};
+    for (String b : bulan) {
+        cmbBulan.addItem(b);
+    }
     }
 
     /**
@@ -61,6 +74,11 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
 
         btnHitung.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         btnHitung.setText("Hitung");
+        btnHitung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHitungActionPerformed(evt);
+            }
+        });
 
         btnSelisih.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         btnSelisih.setText("Selisih");
@@ -162,6 +180,29 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungActionPerformed
+        // TODO add your handling code here:
+        try {
+        int tahun = (Integer) spnTahun.getValue();
+        int bulanIndex = cmbBulan.getSelectedIndex() + 1; // Januari = 0, jadi +1
+        LocalDate tanggal = LocalDate.of(tahun, bulanIndex, 1);
+
+        int jumlahHari = tanggal.lengthOfMonth();
+        LocalDate hariPertama = tanggal.withDayOfMonth(1);
+        LocalDate hariTerakhir = tanggal.withDayOfMonth(jumlahHari);
+
+        lblHasil.setText("Jumlah Hari: " + jumlahHari + " hari");
+        lblInfoHari.setText("Hari pertama: " 
+                + hariPertama.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("id", "ID"))
+                + " | Hari terakhir: " 
+                + hariTerakhir.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("id", "ID")));
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Input tidak valid!", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    }//GEN-LAST:event_btnHitungActionPerformed
 
     /**
      * @param args the command line arguments
