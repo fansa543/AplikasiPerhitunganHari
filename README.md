@@ -1,4 +1,4 @@
-# 🗓️ Aplikasi Perhitungan Hari (Tugas 4 Visual 3)
+# 🗓️ Aplikasi Perhitungan Hari (Tugas 4)
 
 ## 📘 Deskripsi Program
 Aplikasi ini dibuat menggunakan **Java Swing (NetBeans)** untuk menghitung jumlah hari pada bulan dan tahun tertentu.  
@@ -210,9 +210,20 @@ private void jCalendar2PropertyChange(java.beans.PropertyChangeEvent evt) {
 ```
 
 ---
+## 🐾 Menghitung hari
+
+<img width="1597" height="723" alt="image" src="https://github.com/user-attachments/assets/f58bad0f-794e-482d-803f-e4943895b7cc" />
+
 
 
 ---
+
+---
+
+## 🍁 Hitung Selisih
+
+<img width="1587" height="799" alt="image" src="https://github.com/user-attachments/assets/9c728980-eded-42e8-8d3c-02e9478fa8b7" />
+
 
 ## 🧾 Indikator Penilaian
 
