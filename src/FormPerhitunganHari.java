@@ -28,6 +28,10 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
     for (String b : bulan) {
         cmbBulan.addItem(b);
     }
+    javax.swing.SpinnerNumberModel modelTahun = new javax.swing.SpinnerNumberModel(2024, 1, 9999, 1);
+spnTahun.setModel(modelTahun);
+lblHasil.setText("Jumlah Hari: -");
+lblInfoHari.setText("Hari pertama & terakhir: -");
     }
 
     /**
@@ -95,6 +99,11 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
 
         btnKeluar.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         btnKeluar.setText("Keluar");
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
 
         lblHasil.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         lblHasil.setText("Jumlah Hari:");
@@ -238,6 +247,14 @@ public class FormPerhitunganHari extends javax.swing.JFrame {
     }
 
     }//GEN-LAST:event_btnSelisihActionPerformed
+
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+        // TODO add your handling code here:
+        int pilih = JOptionPane.showConfirmDialog(this, "Yakin ingin keluar?", "Konfirmasi Keluar", JOptionPane.YES_NO_OPTION);
+    if (pilih == JOptionPane.YES_OPTION) {
+        System.exit(0);
+    }
+    }//GEN-LAST:event_btnKeluarActionPerformed
 
     /**
      * @param args the command line arguments
